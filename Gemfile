@@ -34,6 +34,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+gem "omniauth"
 gem "cancan"
 gem "devise"
 gem "high_voltage"
