@@ -38,7 +38,6 @@ group :test do
   gem 'minitest-reporters', '~> 0.8.0'
   gem 'minitest-matchers', '~> 1.2.0'
   gem 'valid_attribute', git: 'git://github.com/wojtekmach/valid_attribute.git', branch: 'minitest-matchers-11'
-  gem 'shoulda-matchers', '~> 1.2.0'
   gem 'guard-minitest', '~> 0.5.0'
   gem 'guard-spinach', '~> 0.0.2'
   gem 'yard', '~> 0.7.0'
@@ -50,6 +49,7 @@ group :test do
   gem 'selenium-webdriver', '~> 2.21.2'
   gem 'simplecov', '~> 0.6.4'
   gem 'simplecov-rcov', '~> 0.2.3'
+  gem 'libnotify'
 end
 
 gem "cancan"
