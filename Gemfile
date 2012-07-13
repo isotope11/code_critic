@@ -51,6 +51,7 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3'
   gem 'libnotify'
 end
+gem "omniauth"
 
 gem "cancan"
 gem "devise"
