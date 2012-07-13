@@ -33,7 +33,25 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'database_cleaner', '~> 0.7.2'
+  gem 'minitest', '~> 3.2.0'
+  gem 'minitest-reporters', '~> 0.8.0'
+  gem 'minitest-matchers', '~> 1.2.0'
+  gem 'valid_attribute', git: 'git://github.com/wojtekmach/valid_attribute.git', branch: 'minitest-matchers-11'
+  gem 'shoulda-matchers', '~> 1.2.0'
+  gem 'guard-minitest', '~> 0.5.0'
+  gem 'guard-spinach', '~> 0.0.2'
+  gem 'yard', '~> 0.7.0'
+  gem 'yardstick', '~> 0.4.0'
+  gem 'redcarpet', '~> 2.1.1'
+  gem 'mocha', '~> 0.11.4', require: false
+  gem 'factory_girl_rails', '~> 3.0'
+  gem 'launchy', '~> 2.1.0'
+  gem 'selenium-webdriver', '~> 2.21.2'
+  gem 'simplecov', '~> 0.6.4'
+  gem 'simplecov-rcov', '~> 0.2.3'
 end
+
 gem "cancan"
 gem "devise"
 gem "high_voltage"
