@@ -5,7 +5,7 @@ module OmniAuth
       option :name, :xrono
 
       option :client_options, {
-        :site => "http://localhost:3000",
+        :site => "http://xrono.isotope11.com",
         :authorize_url => "/oauth/authorize"
       }
       uid { raw_info["email"] }

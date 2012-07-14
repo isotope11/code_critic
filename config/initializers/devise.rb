@@ -203,7 +203,8 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
-  config.omniauth :xrono, "4563d2778f147a597a2830ccc052586cb0de40799a897c7d68aeff786fda6d2f", "2d2c8695d86fe4f83ae234f7ed97b9aa9244dc67828cea0f68bc44e904df9941", :scope => :public
+  config.omniauth :xrono, "2d362cd9cc366f0867bb1b3d83069de2568759970cb8840bb397f6347207ddb1", "4cff3949b2d23106523a73ed1b1f6383474f852ed86460fe6eb81d093aeb071b", :scope => :public
+     # Add a new OmniAuth provider. Check the wiki for more inform
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
