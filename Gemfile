@@ -28,7 +28,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
@@ -52,7 +52,8 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3'
 end
 gem "omniauth"
-
+gem "omniauth-oauth2"
+gem "pry"
 gem "cancan"
 gem "devise"
 gem "high_voltage"
