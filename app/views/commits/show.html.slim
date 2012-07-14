@@ -1,6 +1,7 @@
 h2= @commit
 
-pre
-  code= @git_commit.show[0].diff
+- @git_commit.diffs.each do |diff|
+  pre
+    code= diff.diff
 
 = comments_for @commit

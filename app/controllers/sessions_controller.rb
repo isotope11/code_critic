@@ -10,7 +10,7 @@ class SessionsController < Devise::OmniauthCallbacksController
     end
 
     # Currently storing all the info
-    session[:user_id] = omniauth
+    session[:user_id] = user.id
 
     flash[:notice] = "Successfully logged in"
     redirect_to root_path

@@ -8,7 +8,7 @@ module OmniAuth
         :site => "http://localhost:3000",
         :authorize_url => "/oauth/authorize"
       }
-      uid { raw_info["id"] }
+      uid { raw_info["email"] }
 
       info do
         {
