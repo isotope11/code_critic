@@ -65,3 +65,5 @@ gem "chosen-rails"
 gem "underscore-rails"
 gem 'github_concern', :git => 'http://github.com/adamgamble/github_concern.git'
 gem 'grit'
+gem "opinio"
+gem "kaminari"

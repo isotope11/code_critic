@@ -1,12 +1,16 @@
 CodeCritic::Application.routes.draw do
 
+  opinio_model
+
   devise_for :users, :path => "users", :controllers => { :omniauth_callbacks => "sessions", :registrations => "registrations" }
   #devise_for :users
 
 
   #match '/users/auth/:provider/callback' => 'sessions#create'
   resources :repos do
-    resources :commits
+    resources :commits do
+      opinio
+    end
   end
 
   match 'pages/:id' => 'high_voltage/pages#show', :as => :static, :via => :get

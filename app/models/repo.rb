@@ -3,6 +3,8 @@ class Repo < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :url
 
+  has_many :commits
+
   github_concern :repo => :name
 
   def to_s

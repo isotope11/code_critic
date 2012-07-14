@@ -4,12 +4,15 @@ h3 URL: #{@repo.url}
 table
   thead
     tr
-      th SHA
+      th
       th Author
+      th SHA
       th Message
   tbody
-    - @repo.git_repo.commits.each do |commit|
+    - @repo.git_repo.commits.each do |git_commit|
+      - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
       tr
-        td= link_to(commit.sha, repo_commit_path(@repo, commit))
+        td= image_tag(commit.gravatar)
         td= commit.author
+        td= link_to(commit, repo_commit_path(@repo, commit))
         td= commit.message

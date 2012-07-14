@@ -1,4 +1,6 @@
-h2= @commit.to_s
+h2= @commit
 
 pre
-  code= @commit.show[0].diff
+  code= @git_commit.show[0].diff
+
+= comments_for @commit

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120714003559) do
+ActiveRecord::Schema.define(:version => 20120714175207) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "owner_id",         :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "body",             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "commits", :force => true do |t|
+    t.string   "sha"
+    t.integer  "repo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "git_commits", :force => true do |t|
     t.text     "payload"
