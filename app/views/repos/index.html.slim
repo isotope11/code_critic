@@ -1,0 +1,15 @@
+h2 Repos
+
+table
+  thead
+    tr
+      th Name
+      th URL
+      th
+  tbody
+    - @repos.each do |repo|
+      tr
+        td= link_to(repo, repo_path(repo))
+        td= repo.url
+
+= link_to "New Repo", new_repo_path, ref: 'new-repo'

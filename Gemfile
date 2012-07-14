@@ -62,3 +62,5 @@ gem "slim-rails"
 gem "compass_twitter_bootstrap", :git => "git://github.com/vwall/compass-twitter-bootstrap.git", :group => :assets
 gem "chosen-rails"
 gem "underscore-rails"
+gem 'github_concern', :git => 'http://github.com/adamgamble/github_concern.git'
+gem 'grit'

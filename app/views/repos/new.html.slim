@@ -1,0 +1,9 @@
+h3 New Repo
+
+= form_for @repo, html: { class: 'form-horizontal' } do |f|
+  = f.label "Name"
+  = f.text_field :name
+  = f.label "URL"
+  = f.text_field :url
+  .form-actions
+    = button_tag 'Submit', class: 'btn btn-primary'
