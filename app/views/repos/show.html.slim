@@ -1,2 +1,15 @@
 h2 Repo: #{@repo.name}
 h3 URL: #{@repo.url}
+
+table
+  thead
+    tr
+      th SHA
+      th Author
+      th Message
+  tbody
+    - @repo.git_repo.commits.each do |commit|
+      tr
+        td= link_to(commit.sha, repo_commit_path(@repo, commit))
+        td= commit.author
+        td= commit.message
