@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713232142) do
+ActiveRecord::Schema.define(:version => 20120714003559) do
+
+  create_table "git_commits", :force => true do |t|
+    t.text     "payload"
+    t.integer  "git_push_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "git_pushes", :force => true do |t|
+    t.text     "payload"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "github_concernable_git_pushes", :force => true do |t|
+    t.string   "github_concernable_type"
+    t.integer  "github_concernable_id"
+    t.integer  "git_push_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "repos", :force => true do |t|
+    t.string "name"
+    t.string "url"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
