@@ -2,7 +2,7 @@
 li id="comment_#{comment.id}"
   span
     | User: 
-    = comment.owner.id
+    = comment.owner
   p
     = simple_format(comment.body)
 
