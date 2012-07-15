@@ -1,5 +1,6 @@
 class Commit < ActiveRecord::Base
   belongs_to :repo
+  has_many :review_requests, :as => :reviewable
   validates_presence_of :sha, :repo_id
   validates_uniqueness_of :sha
   opinio_subjectum
