@@ -1,1 +1,16 @@
 = link_to "Log in with xrono...", "http://codecritic.isotope11.com/users/auth/xrono"
+
+h2 Review Requests
+    
+table
+  thead
+    tr
+      th Author
+      th SHA
+      th Message
+  tbody
+    - current_user.review_requests.each do |rr|
+      tr
+        td= rr.commit.author
+        td= link_to(rr.commit, commit_path(rr.commit))
+        td= rr.commit.message
