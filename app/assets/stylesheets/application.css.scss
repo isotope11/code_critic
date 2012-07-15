@@ -5,6 +5,13 @@
 @import 'compass_twitter_bootstrap_awesome';
 @import 'compass_twitter_bootstrap_responsive';
 
+$diff-green: #DDFFDD;
+$diff-red:   #FFDDDD;
+
+.code-font {
+  font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+}
+
 body {
   margin-top: 50px;
 }
@@ -50,7 +57,7 @@ body {
 }
 
 .sha {
-  font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+  @extend .code-font;
 }
 
 .commit-card {
@@ -85,4 +92,24 @@ body {
 
 .clear {
   clear: both;
+}
+
+.diff-table {
+  width: 100%;
+}
+
+.diff-line {
+  @extend .code-font;
+  &.added {
+    background-color: $diff-green;
+  }
+  &.removed {
+    background-color: $diff-red;
+  }
+}
+
+.new_comment {
+  textarea {
+    width: 100%;
+  }
 }
