@@ -1,5 +1,5 @@
 ## Code Critic
-### Or, "Hey I just met you, and this is crazy, but here's some code, so review it maybe?"
+### Or, "Hey I just met you, and this is crazy, but here's some code so...review it maybe?"
 
 Peer review some code
 
@@ -17,4 +17,3 @@ Run guard to run the tests as you develop:
 Also, make a ./repos directory in `RAILS_ROOT`
 
 Then when you change files, blammo, tests will runnnnn.
-
