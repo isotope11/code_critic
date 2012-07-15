@@ -7,17 +7,17 @@ html
     = csrf_meta_tags
 
   body
-    div class="navbar navbar-fixed-top"
-      div class="fill navbar-inner"
-        div class="container-fluid"
+    .navbar.navbar-fixed-top
+      .fill.navbar-inner
+        .container
           = link_to 'code_critic', '/', :class => 'brand'
           = render 'shared/menu'
 
-    .container-fluid
+    .container
       = render "shared/flashes"
-      .row-fluid
+      .row
         .span12= yield
     .clear
     footer.footer
-      .container-fluid
+      .container
         p &copy; Isotope11 2012
