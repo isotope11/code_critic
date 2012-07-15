@@ -16,6 +16,7 @@ class ReviewRequestsController < ApplicationController
       @review_request.commit_id = @commit.id
       if @review_request.save
         flash[:notice] = "Review Request created successfully."
+        ContactMailer.review_request(@review_request, params[:email]).deliver
         redirect_to @commit
       else
         flash[:error] = "There was a problem creating your review request."
