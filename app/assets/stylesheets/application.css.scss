@@ -5,6 +5,64 @@
 @import 'compass_twitter_bootstrap_awesome';
 @import 'compass_twitter_bootstrap_responsive';
 
-body{
+body {
   margin-top: 50px;
+}
+
+.author-image-small {
+  width: 2.5rem;
+  @include border-radius(5px);
+}
+
+.commits{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.commit {
+  clear: both;
+  padding: .5rem;
+  border-bottom: 1px solid #eee;
+  &:hover {
+    background-color: #eee;
+  }
+  .commit-title{
+    display: inline-block;
+    font-weight: bold;
+    width: 70%;
+  }
+  .commit-author{
+    font-size: .75rem;
+    color: #666;
+  }
+  .author-image-small {
+    float: left;
+    margin-right: 1rem;
+  }
+  .commit-sha-link {
+    float: right;
+    font-size: .75rem;
+  }
+}
+.sha {
+  font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+}
+
+.commit-card {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  @include border-radius(4px);
+  h2 {
+    padding: .5rem;
+    color: #333;
+    a {
+      float: right;
+      font-size: .75rem;
+    }
+  }
+  .commit-info {
+    padding: .5rem;
+    background-color: white;
+    @include border-radius(0 0 4px 4px);
+  }
 }
