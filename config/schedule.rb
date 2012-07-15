@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minutes do
-  runner "Repo.pull_all!"
+  runner "source ~/.bashrc; Repo.pull_all!"
 end
