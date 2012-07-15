@@ -1,18 +1,11 @@
 h2 Repo: #{@repo.name}
 h3 URL: #{@repo.url}
 
-table
-  thead
-    tr
-      th
-      th Author
-      th SHA
-      th Message
-  tbody
-    - @repo.git_repo.commits.each do |git_commit|
-      - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
-      tr
-        td= image_tag(commit.gravatar)
-        td= commit.author
-        td= link_to(commit, repo_commit_path(@repo, commit))
-        td= commit.message
+.commits
+  - @repo.git_repo.commits.each do |git_commit|
+    - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
+    .commit
+      = image_tag(commit.gravatar, class: 'author-image-small')
+      .commit-sha-link.sha= link_to(commit, repo_commit_path(@repo, commit))
+      .commit-title= commit.title
+      .commit-author= commit.author

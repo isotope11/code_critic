@@ -5,6 +5,40 @@
 @import 'compass_twitter_bootstrap_awesome';
 @import 'compass_twitter_bootstrap_responsive';
 
-body{
+body {
   margin-top: 50px;
+}
+
+.author-image-small {
+  width: 2.5em;
+  @include border-radius(5px);
+}
+
+.commits{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.commit {
+  clear: both;
+  .commit-title{
+    display: inline-block;
+    font-weight: bold;
+    width: 70%;
+  }
+  .commit-author{
+    font-size: .75em;
+    color: #666;
+  }
+  .author-image-small {
+    float: left;
+    margin-right: 1em;
+  }
+  .commit-sha-link {
+    float: right;
+    font-size: .75em;
+  }
+}
+.sha {
+  font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
 }

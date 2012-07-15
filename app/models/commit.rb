@@ -15,7 +15,11 @@ class Commit < ActiveRecord::Base
   end
 
   def to_s
-    sha
+    sha[0..9]
+  end
+
+  def title
+    message.split(/\r?\n/)[0][0..80]
   end
 
   def git_commit
