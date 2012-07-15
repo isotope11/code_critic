@@ -25,7 +25,8 @@ class Repo < ActiveRecord::Base
   end
   
   def pull!
-    git_repo.git.pull
+    # FIXME: WHY WON'T GRIT PULL WORK LIKE I WANT IT TO?????
+    `cd #{root}; git pull`
   end
 
   def git_repo
