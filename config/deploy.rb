@@ -1,6 +1,10 @@
 # Bundler bootstrap
 require 'bundler/capistrano'
 
+# Whenever integration
+require 'whenever/capistrano'
+set :whenever_command, "bundle exec whenever"
+
 set :application, "code_critic"
 set :deploy_to, "/home/deployer/code_critic"
 
