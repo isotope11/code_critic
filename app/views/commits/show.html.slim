@@ -15,15 +15,16 @@
   = f.submit 'Request Review'
 
 .review_request
-  h2 Review Requests
-  table
-    thead
-      tr
-        th Email
-    tbody
-      - @commit.review_requests.each do |rr|
+  - if @commit.review_requests.present?
+    h2 Review Requests
+    table
+      thead
         tr
-          td= rr.user.email
+          th Email
+      tbody
+        - @commit.review_requests.each do |rr|
+          tr
+            td= rr.user.email
 
 - @git_commit.diffs.each do |diff|
   pre
