@@ -9,6 +9,8 @@
         | commit 
         span.sha= @commit.sha
       .author= @commit.author
+      abbr class='commit-time timeago' title=@commit.date
+        = @commit.date
       .clear
 
 = form_for ReviewRequest.new do |f|

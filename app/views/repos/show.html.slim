@@ -9,4 +9,8 @@ h3 URL: #{@repo.url}
       .commit-sha-link
         .sha= link_to(commit, repo_commit_path(@repo, commit))
       .commit-title= link_to(commit.title, repo_commit_path(@repo, commit))
-      .commit-author= commit.author
+      .commit-info
+        .commit-author= commit.author
+        | authored
+        abbr class='commit-time timeago' title=commit.date
+          = commit.date

@@ -14,9 +14,16 @@
     font-weight: bold;
     width: 70%;
   }
-  .commit-author{
+  .commit-info{
     font-size: .75rem;
     color: $interesting-text-color;
+  }
+  .commit-author{
+    display: inline-block;
+    margin-right: .25rem;
+  }
+  .commit-time {
+    margin-left: .25rem;
   }
   .author-image-small {
     float: left;
@@ -52,6 +59,8 @@
   }
   .author {
     font-weight: bold;
+    display: inline-block;
+    margin-right: .25em;
   }
   .sha-wrapper {
     float: right;

@@ -1,14 +1,15 @@
 - reply = defined?(reply) ? reply : false
-li id="comment_#{comment.id}"
-  span
-    | User: 
-    = comment.owner
-  p
+li id="comment_#{comment.id}" class="comment"
+  .info
+    span.author= comment.owner
+    | commented
+    abbr class='comment-time timeago' title=comment.created_at.iso8601
+      = comment.created_at.iso8601
+
+  .body
     = Kramdown::Document.new(comment.body).to_html.html_safe
 
-  = link_to t('opinio.actions.delete'), comment_path(comment), :method => :delete, :remote => true
-
-  - if Opinio.accept_replies && !reply
-    span= link_to t('opinio.actions.reply'), reply_comment_path(comment), :remote => true
-    ul id="comment_#{comment.id}_replies" class="replies"
-      = render :partial => "opinio/comments/comment", :collection => comment.comments, :locals => {:reply => true}
+    - if Opinio.accept_replies && !reply
+      span= link_to t('opinio.actions.reply'), reply_comment_path(comment), :remote => true
+      ul id="comment_#{comment.id}_replies" class="replies"
+        = render :partial => "opinio/comments/comment", :collection => comment.comments, :locals => {:reply => true}

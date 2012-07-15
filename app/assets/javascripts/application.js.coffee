@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.timeago.js
 //= require init
 //= require bootstrap-modal
 //= require bootstrap-dropdown
@@ -14,4 +15,3 @@
 //= require bootstrap-typeahead
 //= require chosen-jquery
 //= require underscore
-

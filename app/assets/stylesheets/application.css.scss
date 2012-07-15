@@ -10,14 +10,9 @@
 @import 'layout';
 @import 'diffs';
 @import 'commits';
+@import 'comments';
 
 .author-image-small {
   width: 2.5rem;
   @include border-radius(4px);
-}
-
-.new_comment {
-  textarea {
-    width: 100%;
-  }
 }

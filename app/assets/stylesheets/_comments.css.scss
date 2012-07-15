@@ -1,0 +1,29 @@
+ul.comments {
+  margin-left: 0;
+}
+
+.comment {
+  list-style-type: none;
+  border: 1px solid $primary-border;
+  margin-bottom: 1rem;
+  .info {
+    background-color: $primary-background;
+    border-bottom: 1px solid $primary-border;
+    padding: .5rem;
+    .author {
+      margin-right: .25rem;
+    }
+    abbr {
+      margin-left: .25rem;
+    }
+  }
+  .body {
+    padding: .5rem;
+  }
+}
+
+.new_comment {
+  textarea {
+    width: 99%;
+  }
+}

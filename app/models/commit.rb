@@ -5,7 +5,7 @@ class Commit < ActiveRecord::Base
   validates_uniqueness_of :sha
   opinio_subjectum
 
-  delegate :author, :message, to: :git_commit
+  delegate :author, :message, :date, to: :git_commit
 
   def self.load_from_git_commit(repo, sha)
     git_commit = repo.git_repo.commit(sha)
