@@ -11,7 +11,7 @@ body {
 
 .author-image-small {
   width: 2.5rem;
-  @include border-radius(5px);
+  @include border-radius(4px);
 }
 
 .commits{
@@ -41,6 +41,9 @@ body {
   .commit-sha-link {
     float: right;
     font-size: .75rem;
+    padding: .5rem;
+    background-color: #ddd;
+    @include border-radius(4px);
   }
 }
 
@@ -65,4 +68,19 @@ body {
     background-color: white;
     @include border-radius(0 0 4px 4px);
   }
+  .author {
+    font-weight: bold;
+  }
+  .sha-wrapper {
+    float: right;
+  }
+  .author-image-small {
+    float: left;
+    margin-right: 1rem;
+    width: 1.5rem;
+  }
+}
+
+.clear {
+  clear: both;
 }
