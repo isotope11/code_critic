@@ -67,3 +67,4 @@ gem 'github_concern', :git => 'http://github.com/adamgamble/github_concern.git'
 gem 'grit'
 gem "opinio"
 gem "kaminari"
+gem 'capistrano'
