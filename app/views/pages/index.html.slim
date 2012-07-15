@@ -1,5 +1,8 @@
 - if logged_in?
   h2 Review Requests
-  = render 'review_requests/table', review_requests: current_user.review_requests
+  - if current_user.review_requests.present?
+    = render 'review_requests/table', review_requests: current_user.review_requests
+  - else
+    p You have no review requests at this time.  Your doing it right!
 - else
   = link_to "Log in with xrono...", "/users/auth/xrono"
