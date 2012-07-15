@@ -4,7 +4,7 @@ li id="comment_#{comment.id}"
     | User: 
     = comment.owner
   p
-    = simple_format(comment.body)
+    = Kramdown::Document.new(comment.body).to_html.html_safe
 
   = link_to t('opinio.actions.delete'), comment_path(comment), :method => :delete, :remote => true
 

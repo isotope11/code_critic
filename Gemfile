@@ -70,3 +70,4 @@ gem "opinio"
 gem "kaminari"
 gem 'capistrano'
 gem 'whenever', :require => false
+gem 'kramdown'
