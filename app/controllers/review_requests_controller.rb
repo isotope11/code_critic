@@ -9,12 +9,21 @@ class ReviewRequestsController < ApplicationController
   end
 
   def create
-    if @review_request.save
-      flash[:notice] = "Review Request created successfully."
-      redirect_to @review_request
+    @commit = Commit.find(params[:commit_id])
+    @review_user = User.find_by_email(params[:email])
+    if @review_user.present?
+      @review_request.user_id = @review_user.id
+      @review_request.commit_id = @commit.id
+      if @review_request.save
+        flash[:notice] = "Review Request created successfully."
+        redirect_to @commit
+      else
+        flash[:error] = "There was a problem creating your review request."
+        render :new
+      end
     else
-      flash[:error] = "There was a problem creating your review request."
-      render :new
+      flash[:error] = "The user requested was not found."
+      redirect_to :back
     end
   end
 

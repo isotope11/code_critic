@@ -12,6 +12,7 @@ CodeCritic::Application.routes.draw do
       opinio
     end
   end
+  resources :review_requests
 
   resources :commits do
     opinio

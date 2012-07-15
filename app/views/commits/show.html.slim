@@ -1,5 +1,11 @@
 h2= @commit
-
+.review_request
+  = form_for ReviewRequest.new do |f|
+    = f.label :email
+    = text_field_tag :email
+    = hidden_field_tag :user_id, current_user.id
+    = hidden_field_tag :commit_id, @commit.id
+    = f.submit 'Request Review'
 - @git_commit.diffs.each do |diff|
   pre
     code= diff.diff
