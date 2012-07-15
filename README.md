@@ -17,4 +17,3 @@ Run guard to run the tests as you develop:
 Also, make a ./repos directory in `RAILS_ROOT`
 
 Then when you change files, blammo, tests will runnnnn.
-
