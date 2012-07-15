@@ -14,13 +14,18 @@ class ReviewRequestsController < ApplicationController
     if @review_user.present?
       @review_request.user_id = @review_user.id
       @review_request.commit_id = @commit.id
-      if @review_request.save
-        flash[:notice] = "Review Request created successfully."
-        ContactMailer.review_request(@review_request, params[:email]).deliver
-        redirect_to @commit
+      unless ReviewRequest.find_by_user_id_and_commit_id(@review_user.id, @commit.id).present?
+        if @review_request.save
+          flash[:notice] = "Review Request created successfully."
+          ContactMailer.review_request(@review_request, params[:email]).deliver
+          redirect_to @commit
+        else
+          flash[:error] = "There was a problem creating your review request."
+          render :new
+        end
       else
-        flash[:error] = "There was a problem creating your review request."
-        render :new
+        flash[:error] = "This user has already been requested to review this commit."
+        redirect_to :back
       end
     else
       flash[:error] = "The user requested was not found."
