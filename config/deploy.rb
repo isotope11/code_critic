@@ -44,3 +44,4 @@ namespace :deploy do
 end
 
 after 'bundle:install', 'deploy:symlink_shared'
+after 'deploy:update_code', 'deploy:precompile_assets'
