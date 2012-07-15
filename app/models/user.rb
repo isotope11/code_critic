@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :remember_me
 
   has_many :review_requests
+
+  def to_s
+    email
+  end
 end
