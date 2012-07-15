@@ -1,0 +1,15 @@
+.diff-table {
+  width: 100%;
+}
+
+.diff-line {
+  @extend .code-font;
+  font-size: .875em;
+  padding-left: 1em;
+  &.added {
+    background-color: $diff-green;
+  }
+  &.removed {
+    background-color: $diff-red;
+  }
+}

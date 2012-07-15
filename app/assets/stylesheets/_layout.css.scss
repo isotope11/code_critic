@@ -1,0 +1,15 @@
+body {
+  margin-top: 50px;
+}
+
+.code-font {
+  font-family: Consolas,Menlo,"Liberation Mono",Courier,monospace;
+}
+
+.sha {
+  @extend .code-font;
+}
+
+footer {
+  color: $supporting-text-color;
+}
