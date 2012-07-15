@@ -19,7 +19,7 @@
   = f.submit 'Request Review'
 
 .review_request
-  - if @commit.review_requests.present?
+  - if @commit.review_requests.not_complete.present?
     h2 Review Requests
     table
       thead

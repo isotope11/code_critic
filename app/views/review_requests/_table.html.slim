@@ -5,7 +5,7 @@ table
       th SHA
       th Message
   tbody
-    - review_requests.each do |rr|
+    - review_requests.not_complete.each do |rr|
       tr
         td= rr.commit.author
         td= link_to(rr.commit, commit_path(rr.commit))
