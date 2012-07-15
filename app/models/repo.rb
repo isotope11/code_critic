@@ -5,6 +5,8 @@ class Repo < ActiveRecord::Base
 
   has_many :commits
 
+  after_create :clone!
+
   github_concern :repo => :name
 
   def to_s
