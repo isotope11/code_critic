@@ -23,6 +23,6 @@ class Repo < ActiveRecord::Base
   end
 
   def root
-    Rails.root.join('tmp', name)
+    Rails.root.join('repos', name)
   end
 end

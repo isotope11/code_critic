@@ -17,4 +17,6 @@
 
 *.sw*
 
+/repos/*
+
 /config/database.yml
