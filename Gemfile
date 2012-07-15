@@ -68,3 +68,4 @@ gem 'grit'
 gem "opinio"
 gem "kaminari"
 gem 'capistrano'
+gem 'whenever', :require => false
