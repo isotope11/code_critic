@@ -1,5 +1,12 @@
 .diff-table {
   width: 100%;
+  border: 1px solid $primary-border;
+  th {
+    padding: 1em;
+    font-weight: normal;
+    text-align: left;
+    background-color: $primary-background;
+  }
 }
 
 .diff-line {

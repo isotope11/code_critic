@@ -30,13 +30,19 @@
           tr
             td= rr.user.email
 
-- @git_commit.diffs.each do |diff|
+- @git_commit.diffs.each do |git_diff_file|
+  - diff = DiffFile.new(git_diff_file)
   table.diff-table
+    thead
+      tr
+        th colspan=999
+          = diff.file_path
+
     tbody
-      - diff.diff.each_line do |diff_line|
-        - diff_line = DiffLine.new(diff_line)
+      - diff.each_line do |diff_line|
         tr
           td class="diff-line #{diff_line.added_or_removed}"
             = diff_line.to_s.html_safe
+
 
 = comments_for @commit
