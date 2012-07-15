@@ -15,6 +15,10 @@ class Commit < ActiveRecord::Base
   end
 
   def to_s
+    short_sha
+  end
+
+  def short_sha
     sha[0..9]
   end
 

@@ -1,4 +1,13 @@
-h2= @commit
+.commit-card
+  h2
+    = @commit.title
+    = link_to('Back to repo', repo_path(@commit.repo))
+  .commit-info
+    = image_tag(@commit.gravatar, class: 'author-image-small')
+    .author= @commit.author
+    .sha= @commit.sha
+
+
 .review_request
   = form_for ReviewRequest.new do |f|
     = f.label :email
