@@ -6,6 +6,7 @@ h3 URL: #{@repo.url}
     - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
     .commit
       = image_tag(commit.gravatar, class: 'author-image-small')
-      .commit-sha-link.sha= link_to(commit, repo_commit_path(@repo, commit))
-      .commit-title= commit.title
+      .commit-sha-link
+        .sha= link_to(commit, repo_commit_path(@repo, commit))
+      .commit-title= link_to(commit.title, repo_commit_path(@repo, commit))
       .commit-author= commit.author

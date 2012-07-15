@@ -4,8 +4,12 @@
     = link_to('Back to repo', repo_path(@commit.repo))
   .commit-info
     = image_tag(@commit.gravatar, class: 'author-image-small')
-    .author= @commit.author
-    .sha= @commit.sha
+    .details
+      .sha-wrapper
+        | commit 
+        span.sha= @commit.sha
+      .author= @commit.author
+      .clear
 
 = form_for ReviewRequest.new do |f|
   = f.label :email
