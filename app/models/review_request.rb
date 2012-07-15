@@ -6,6 +6,8 @@ class ReviewRequest < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :commit_id
 
+  fires :create
+
   scope :not_complete, where(:state => 'review_created')
 
   state_machine :state, :initial => :review_created do

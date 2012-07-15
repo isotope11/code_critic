@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715060027) do
+ActiveRecord::Schema.define(:version => 20120715090822) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "actor_id"
+    t.string   "actor_type"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.string   "activity_type"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["actor_id"], :name => "index_activities_on_actor_id"
+  add_index "activities", ["target_id"], :name => "index_activities_on_target_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false

@@ -4,5 +4,26 @@
     = render 'review_requests/table', review_requests: current_user.review_requests
   - else
     p You have no review requests at this time.  You're doing it right!
+ 
+  h2 Recent Activity
+  - activities.each do |activity|
+    .activity
+        table
+          thead
+            tr
+              th User
+              th Action
+              th Activity
+          tbody
+            tr
+              - if activity.target.class == Comment
+                td= activity.target.owner.email
+                td= (activity.activity_type == 'create')? 'created' : 'updated'
+                td= link_to activity.target.body, activity.target.commentable
+              - elsif activity.target.class == ReviewRequest
+                td= activity.target.user.email
+                td= (activity.activity_type == 'create')? 'created' : 'updated'
+                td= link_to activity.target.commit.sha, activity.target.commit
 - else
   = link_to "Log in with xrono...", "/users/auth/xrono"
+

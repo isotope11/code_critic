@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     next Repo.find(params[:repo_id]) if params[:repo_id]
     next Commit.find(params[:commit_id]) if params[:id]
   end
+
+  def activities
+    @activities = Activity.order('created_at DESC')
+  end
+  helper_method :activities
 end
