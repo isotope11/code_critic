@@ -1,6 +1,6 @@
 - if logged_in?
   h2 Review Requests
-  - if current_user.review_requests.present?
+  - if current_user.review_requests.not_complete.present?
     = render 'review_requests/table', review_requests: current_user.review_requests
   - else
     p You have no review requests at this time.  You're doing it right!

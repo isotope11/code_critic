@@ -3,6 +3,8 @@ class ReviewRequest < ActiveRecord::Base
   belongs_to :user
   belongs_to :commit
 
+  scope :not_complete, where(:state => 'review_created')
+
   state_machine :state, :initial => :review_created do
 
     event :review_completed do
