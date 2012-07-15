@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120714175207) do
+ActiveRecord::Schema.define(:version => 20120715005147) do
 
   create_table "comments", :force => true do |t|
     t.integer  "owner_id",         :null => false
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(:version => 20120714175207) do
   create_table "repos", :force => true do |t|
     t.string "name"
     t.string "url"
+  end
+
+  create_table "review_requests", :force => true do |t|
+    t.integer  "reviewable_id"
+    t.string   "reviewable_type"
+    t.string   "commit_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
