@@ -192,6 +192,7 @@ GEM
       kaminari
       rails (~> 3)
     orm_adapter (0.4.0)
+    pg (0.14.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     protocolist (0.9.0.beta)
@@ -336,6 +337,7 @@ DEPENDENCIES
   omniauth
   omniauth-oauth2
   opinio
+  pg
   protocolist
   pry
   rails (= 3.1.3)
