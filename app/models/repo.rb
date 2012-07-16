@@ -25,7 +25,7 @@ class Repo < ActiveRecord::Base
 
   def clone!
     grit = Grit::Git.new(Rails.root.join('tmp').to_s)
-    grit.clone({:quiet => false, :verbose => true, :progress => true}, url, root.to_s)
+    grit.clone({:quiet => false, :verbose => true, :progress => true, :timeout => false}, url, root.to_s)
   end
 
   def pull!

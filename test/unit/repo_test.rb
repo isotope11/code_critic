@@ -4,12 +4,17 @@ describe Repo do
   it "has the basics down" do
     Repo.must_be_kind_of Class
 
-    repo = Repo.new
-    repo.must have_valid(:name).when("code_critic")
-    repo.wont have_valid(:name).when("")
+    repo = Repo.new url: 'bar'
+    repo.name = 'code_critic'
+    repo.valid?.must_equal true
+    repo.name = ''
+    repo.valid?.wont_equal true
 
-    repo.must have_valid(:url).when("git@github.com:isotope11/code_critic.git")
-    repo.wont have_valid(:url).when("")
+    repo.name = 'bar'
+    repo.url = 'git@github.com:isotope11/code_critic.git'
+    repo.valid?.must_equal true
+    repo.url = ''
+    repo.valid?.wont_equal true
   end
 
   it "uses its name for to_s" do
