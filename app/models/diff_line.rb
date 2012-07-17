@@ -1,16 +1,18 @@
 class DiffLine
   attr_accessor :line
 
+  delegate :start_with?, :to => :line
+
   def initialize(string)
     @line = string
   end
 
   def added?
-    first_char_is? '+'
+    start_with? '+'
   end
 
   def removed?
-    first_char_is? '-'
+    start_with? '-'
   end
 
   def added_or_removed
@@ -21,14 +23,5 @@ class DiffLine
 
   def to_s
     @line.gsub(/ /, '&nbsp;')
-  end
-
-  private
-  def first_char_is?(c)
-    first_char == c
-  end
-
-  def first_char
-    line[0]
   end
 end
