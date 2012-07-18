@@ -1,6 +1,9 @@
 # Bundler bootstrap
 require 'bundler/capistrano'
 
+# Sidekiq bootstrap
+require 'sidekiq/capistrano'
+
 # Whenever integration
 require 'whenever/capistrano'
 set :whenever_command, "bundle exec whenever"
