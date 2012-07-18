@@ -44,6 +44,6 @@
       - diff.each_line do |diff_line|
         tr
           td class="diff-line #{diff_line.added_or_removed}"
-            = diff_line.to_s.html_safe
+            = diff_line.to_s
 
 = comments_for @commit

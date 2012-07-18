@@ -22,6 +22,6 @@ class DiffLine
   end
 
   def to_s
-    @line.gsub(/ /, '&nbsp;')
+    @line.to_s
   end
 end
