@@ -4,6 +4,7 @@ class CommitsController < ApplicationController
   before_filter :load_commit, only: [:show]
 
   def show
+    @user_emails = User.all.map{|x| x.email unless x.email == current_user.email}.compact
   end
 
   protected

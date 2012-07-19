@@ -15,7 +15,7 @@
 
 = form_for ReviewRequest.new do |f|
   = f.label :email
-  = text_field_tag :email
+  = select_tag :email, options_for_select(@user_emails)
   = hidden_field_tag :user_id, current_user.id
   = hidden_field_tag :commit_id, @commit.id
   = f.submit 'Request Review'
@@ -44,6 +44,7 @@
       - diff.each_line do |diff_line|
         tr
           td class="diff-line #{diff_line.added_or_removed}"
-            = diff_line.to_s
+            = diff_line.to_s.html_safe
+
 
 = comments_for @commit
