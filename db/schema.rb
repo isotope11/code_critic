@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715090822) do
+ActiveRecord::Schema.define(:version => 20120723204846) do
 
   create_table "activities", :force => true do |t|
     t.integer  "actor_id"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(:version => 20120715090822) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "file_line_placeholders", :force => true do |t|
+    t.integer "commit_id"
+    t.integer "file_index"
+    t.integer "line_index"
+  end
+
+  add_index "file_line_placeholders", ["commit_id", "file_index", "line_index"], :name => "idx_flp_on_cid_findex_lindex"
+
+  create_table "file_placeholders", :force => true do |t|
+    t.integer "commit_id"
+    t.integer "file_index"
+  end
+
+  add_index "file_placeholders", ["commit_id", "file_index"], :name => "index_file_placeholders_on_commit_id_and_file_index"
 
   create_table "git_commits", :force => true do |t|
     t.text     "payload"

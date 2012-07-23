@@ -14,10 +14,42 @@
   @extend .code-font;
   font-size: .875em;
   padding-left: 1em;
+  position: relative;
   &.added {
     background-color: $diff-green;
   }
   &.removed {
     background-color: $diff-red;
+  }
+  pre {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    display: block;
+    font-size: auto;
+    line-height: 14px;
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  b.add-comment {
+    padding: 0 4px;
+    height: 16px;
+    width: 16px;
+    background-color: $primary-background;
+    display: none;
+    position: absolute;
+    margin-left: -36px;
+    margin-top: -1px;
+    cursor: pointer;
+    &:hover {
+      background-color: $primary-border;
+    }
+  }
+  &:hover {
+    b.add-comment {
+      display: block;
+    }
   }
 }

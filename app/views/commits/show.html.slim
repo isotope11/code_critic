@@ -32,8 +32,8 @@
           tr
             td= rr.user.email
 
-- @git_commit.diffs.each do |git_diff_file|
-  - diff = DiffFile.new(git_diff_file)
+- @git_commit.diffs.each_with_index do |git_diff_file, file_index|
+  - diff = DiffFile.new(git_diff_file, @commit.sha, file_index)
   table.diff-table
     thead
       tr
@@ -42,8 +42,36 @@
 
     tbody
       - diff.each_line do |diff_line|
+        - placeholder_line = diff_line.line_placeholder
         tr
           td class="diff-line #{diff_line.added_or_removed}"
-            = diff_line.to_s.html_safe
+            - if diff_line.line_index >= 0
+              b(class="add-comment" data-id=placeholder_line.id) +
+            pre.line= diff_line.to_s.html_safe
+        - if placeholder_line.comments.any?
+          tr.inline-comments
+            td
+              = render_comments placeholder_line
+  = comments_for diff.file_placeholder
 
 = comments_for @commit
+
+-# Make an inline comment form template that we can inject in place after the row where any given b.add-comment tag was clicked
+script#inline-comment-form type="text/html"
+  tr.inline-comments
+    td
+      h3 Add comments to line
+      = form_for Comment.new do |f|
+        p= f.text_area :body, rows: 3
+        = hidden_field_tag :commentable_id, "{{id}}"
+        = hidden_field_tag :commentable_type, 'FileLinePlaceholder'
+        = f.submit t('opinio.actions.add')
+
+-# Whenever a b tag is clicked, inject the appropriate template in the next row
+javascript:
+  $(function(){
+    $('b.add-comment').on('click', function(){
+      var row = $(this).closest('tr');
+      row.after(ich["inline-comment-form"]($(this).data()));
+    });
+  });

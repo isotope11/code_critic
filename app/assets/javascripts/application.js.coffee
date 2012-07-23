@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.timeago.js
+//= require ICanHaz
 //= require init
 //= require bootstrap-modal
 //= require bootstrap-dropdown
