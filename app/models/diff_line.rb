@@ -25,7 +25,8 @@ class DiffLine
   end
 
   def to_s
-    @line.to_s.gsub(/ /, '&nbsp;')
+    coder = HTMLEntities.new
+    coder.encode(@line.to_s).gsub(/ /, '&nbsp;')
   end
 
   def line_placeholder

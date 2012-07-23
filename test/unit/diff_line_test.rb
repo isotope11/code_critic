@@ -41,8 +41,8 @@ describe DiffLine do
   end
 
   it "replaces the proper characters in the line for html safety when using #to_s" do
-    string = "   foo"
+    string = "   foo<span>bar</span>"
     dl = DiffLine.new(string, @commit, @file_index, @line_index)
-    dl.to_s.must_equal '&nbsp;&nbsp;&nbsp;foo'
+    dl.to_s.must_equal '&nbsp;&nbsp;&nbsp;foo&lt;span&gt;bar&lt;/span&gt;'
   end
 end

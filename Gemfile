@@ -75,3 +75,4 @@ gem 'whenever', :require => false
 gem 'kramdown'
 gem 'sidekiq'
 gem 'foreman'
+gem 'htmlentities'

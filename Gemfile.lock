@@ -124,6 +124,7 @@ GEM
     high_voltage (1.1.1)
     highline (1.6.13)
     hike (1.2.1)
+    htmlentities (4.3.1)
     httpauth (0.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -324,6 +325,7 @@ DEPENDENCIES
   guard-minitest (~> 0.5.0)
   guard-spinach (~> 0.0.2)
   high_voltage
+  htmlentities
   jquery-rails
   kaminari
   kramdown
