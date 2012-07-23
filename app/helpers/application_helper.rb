@@ -10,13 +10,17 @@ module ApplicationHelper
     commit_count = git_repo.commit_count
     total_pages = (commit_count / PAGE_SIZE).ceil
     html = "Showing commits: #{current_paginated_commit_index + 1} - #{current_paginated_commit_index + PAGE_SIZE} out of #{commit_count}<br />"
+    html << "<div class='pagination'>"
+    html << "<ul>"
     (1...total_pages).each do |page|
+      link = link_to(page, "?page=#{page}")
       if current_paginated_commit_page == page
-        html << current_paginated_commit_page.to_s
+        html << "<li class='active'>#{link}</li>"
       else
-        html << link_to(page, "?page=#{page}")
+        html << "<li>#{link}</li>"
       end
     end
+    html << "</ul>"
     html.html_safe
   end
 
