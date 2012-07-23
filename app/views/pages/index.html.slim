@@ -21,7 +21,7 @@
               td= (activity.activity_type == 'create')? 'created' : 'updated'
               td= link_to activity.target.body, activity.target.commentable
             - elsif activity.target.class == ReviewRequest
-              td= activity.target.owner.email
+              td= activity.target.user.email
               td= (activity.activity_type == 'create')? 'created' : 'updated'
               td= link_to activity.target.commit.sha, activity.target.commit
 - else
