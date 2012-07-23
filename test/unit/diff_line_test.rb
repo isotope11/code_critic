@@ -18,4 +18,10 @@ describe DiffLine do
     dl = DiffLine.new(string)
     dl.added_or_removed.must_equal 'removed'
   end
+
+  it "replaces the proper characters in the line for html safety when using #to_s" do
+    string = "   foo"
+    dl = DiffLine.new(string)
+    dl.to_s.must_equal '&nbsp;&nbsp;&nbsp;foo'
+  end
 end
