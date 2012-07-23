@@ -21,7 +21,6 @@
               td= (activity.activity_type == 'create')? 'created' : 'updated'
               td= link_to activity.target.body, activity.target.commentable
             - elsif activity.target.class == ReviewRequest
-              - binding.pry
               td= activity.actor.email
               td= (activity.activity_type == 'create')? 'created' : 'updated'
               td= link_to activity.target.commit.sha, activity.target.commit
