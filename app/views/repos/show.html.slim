@@ -2,7 +2,7 @@ h2 Repo: #{@repo.name}
 h3 URL: #{@repo.url}
 
 .commits
-  - @repo.git_repo.commits.each do |git_commit|
+  - paginate_commits(@repo).each do |git_commit|
     - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
     .commit
       = image_tag(commit.gravatar, class: 'author-image-small')
@@ -14,3 +14,4 @@ h3 URL: #{@repo.url}
         | authored
         abbr class='commit-time timeago' title=commit.date
           = commit.date
+= commit_pagination_links(@repo)
