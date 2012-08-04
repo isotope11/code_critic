@@ -1,5 +1,13 @@
 h2 Tree View
 
 ul
-  - @repo.git_repo.tree.contents.each do |content|
-    li= link_to(content.name, blob_repo_path(@repo, content.basename))
+  - if @level_above
+    li= link_to('..', tree_repo_path(id: @repo.id, branch: @branch, path: @level_above))
+  - @tree.contents.each do |content|
+    li
+      - path = [params[:path], content.basename].join('/')
+      - if content.is_a?(Grit::Blob)
+        - url = blob_repo_path(id: @repo.id, branch: @branch, path: path)
+      - else
+        - url = tree_repo_path(id: @repo.id, branch: @branch, path: path)
+      = link_to(content.name, url)

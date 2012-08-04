@@ -4,16 +4,14 @@ CodeCritic::Application.routes.draw do
   devise_for :users, :path => "users", :controllers => { :omniauth_callbacks => "sessions", :registrations => "registrations" }
 
   resources :repos do
-    member do
-      get :tree
-    end
     resources :commits do
       opinio
     end
   end
   resources :review_requests
 
-  match 'repos/:id/blob/*path/' => 'repos#blob', format: false, as: :blob_repo
+  match 'repos/:id/blob/:branch/*path' => 'repos#blob', format: false, as: :blob_repo
+  match 'repos/:id/tree/:branch(/*path)' => 'repos#tree', format: false, as: :tree_repo
 
   resources :commits do
     opinio

@@ -6,11 +6,14 @@ class ReposController < ApplicationController
   end
 
   def tree
+    @tree = @repo.git_repo.tree(@branch)
+    @tree = @tree / params[:path] if params[:path].present?
+    @level_above = params[:path].present? ? params[:path].split('/')[0..-2].join('/') : nil
   end
 
   def blob
-    STDOUT.puts params.inspect
     @blob = @repo.git_repo.tree(@branch) / params[:path]
+    @level_above = params[:path].split('/')[0..-2].join('/')
   end
 
   def new
