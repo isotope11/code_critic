@@ -11,5 +11,6 @@ table
       tr
         td= link_to(repo, repo_path(repo))
         td= repo.url
+        td= link_to('tree', tree_repo_path(repo))
 
 = link_to "New Repo", new_repo_path, ref: 'new-repo'

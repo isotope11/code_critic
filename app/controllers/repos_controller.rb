@@ -1,8 +1,16 @@
 class ReposController < ApplicationController
   before_filter :load_new_repo, only: [:new, :create]
-  before_filter :load_repo, only: [:show, :edit, :update, :destroy]
+  before_filter :load_repo, only: [:show, :tree, :blob, :edit, :update, :destroy]
 
   def show
+  end
+
+  def tree
+  end
+
+  def blob
+    STDOUT.puts params.inspect
+    @blob = @repo.git_repo.tree(@branch) / params[:path]
   end
 
   def new

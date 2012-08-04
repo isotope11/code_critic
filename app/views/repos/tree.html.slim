@@ -1,0 +1,5 @@
+h2 Tree View
+
+ul
+  - @repo.git_repo.tree.contents.each do |content|
+    li= link_to(content.name, blob_repo_path(@repo, content.basename))
