@@ -32,7 +32,8 @@ class Repo < ActiveRecord::Base
     # FIXME: WHY WON'T GRIT PULL WORK LIKE I WANT IT TO?????
     `cd #{root}; git pull`
     git_repo.remotes.each do |remote|
-      `cd #{root}; git checkout #{remote.name.split('/').last}`
+      local_name = remote.name.split('/').last
+      `cd #{root}; git checkout #{local_name}; git merge #{remote.name}`
     end
   end
 
