@@ -29,5 +29,6 @@ class ReposController < ApplicationController
 
   def load_repo
     @repo = Repo.find(params[:id])
+    @branch = params[:branch] || 'master'
   end
 end

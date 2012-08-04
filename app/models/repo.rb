@@ -31,6 +31,9 @@ class Repo < ActiveRecord::Base
   def pull!
     # FIXME: WHY WON'T GRIT PULL WORK LIKE I WANT IT TO?????
     `cd #{root}; git pull`
+    git_repo.remotes.each do |remote|
+      `cd #{root}; git checkout #{remote.name.split('/').last}`
+    end
   end
 
   def pull
@@ -42,6 +45,10 @@ class Repo < ActiveRecord::Base
   end
 
   def root
-    Rails.root.join('repos', name)
+    File.join(Repo.local_clones_parent_dir, name)
+  end
+
+  def self.local_clones_parent_dir
+    ENV['CODE_CRITIC_LOCAL_CLONES_DIR'] || Rails.root.join('repos')
   end
 end

@@ -1,8 +1,11 @@
 h2 Repo: #{@repo.name}
 h3 URL: #{@repo.url}
 
+= form_tag nil, method: :get do
+  = select_tag :branch, options_from_collection_for_select(@repo.git_repo.heads, :name, :name, selected: @branch), onchange: "$(this).closest('form').submit()"
+
 .commits
-  - paginate_commits(@repo).each do |git_commit|
+  - paginate_commits(@repo, @branch).each do |git_commit|
     - commit = Commit.load_from_git_commit(@repo, git_commit.sha)
     .commit
       = image_tag(commit.gravatar, class: 'author-image-small')

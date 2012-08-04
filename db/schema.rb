@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20120723204846) do
   create_table "review_requests", :force => true do |t|
     t.integer  "reviewable_id"
     t.string   "reviewable_type"
-    t.string   "commit_id"
+    t.integer  "commit_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

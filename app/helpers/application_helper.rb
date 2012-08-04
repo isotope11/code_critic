@@ -1,8 +1,8 @@
 module ApplicationHelper
   PAGE_SIZE = 10
-  def paginate_commits repo
+  def paginate_commits repo, branch='master'
     git_repo = repo.git_repo
-    git_repo.commits(nil, PAGE_SIZE, current_paginated_commit_index)
+    git_repo.commits(branch, PAGE_SIZE, current_paginated_commit_index)
   end
 
   def commit_pagination_links repo
