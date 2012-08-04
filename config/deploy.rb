@@ -2,7 +2,7 @@
 require 'bundler/capistrano'
 
 # Sidekiq bootstrap
-require 'sidekiq/capistrano'
+#require 'sidekiq/capistrano'
 
 # Whenever integration
 require 'whenever/capistrano'
@@ -54,7 +54,13 @@ namespace :deploy do
   task :precompile_assets, :roles => :app do
     run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
+
+  desc "Handle sidekiq since its capistrano is broken"
+  task "restart_sidekiq" do
+    run "cd #{release_path} && nohup bundle exec sidekiq -q default -c 10 -e production &"
+  end
 end
 
 after 'bundle:install', 'deploy:symlink_shared'
 after 'deploy:update_code', 'deploy:precompile_assets'
+after 'deploy:update_code', 'deploy:restart_sidekiq'
