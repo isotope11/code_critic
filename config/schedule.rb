@@ -19,6 +19,6 @@ set :job_template, "export PATH=$PATH:/usr/local/bin/;bash -l -c ':job'"
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 1.minutes do
+every 5.minutes do
   runner "Repo.pull_all!"
 end
