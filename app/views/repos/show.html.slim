@@ -17,4 +17,4 @@ h3 URL: #{@repo.url}
         | authored
         abbr class='commit-time timeago' title=commit.date
           = commit.date
-= commit_pagination_links(@repo)
+= commit_pagination_links(@repo, @branch)
